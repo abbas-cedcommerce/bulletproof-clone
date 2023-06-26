@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router";
 import { publicroutes } from "./publicroutes";
-import { Login } from "@/features/auth/components/Login";
+import { Login } from "../features/auth/components/Login";
 
 export const AppRoutes = () => {
 
@@ -14,7 +14,7 @@ export const AppRoutes = () => {
         element: <Login />,
     }];
 
-    const element = [...commonRoutes] //useRoutes([...routes, ...commonRoutes]);
+    const element = useRoutes([...commonRoutes]);
 
     return <>{element}</>;
 };
