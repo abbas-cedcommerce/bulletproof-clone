@@ -7,12 +7,20 @@ import { AppProvider } from './providers/app';
 import '@shopify/polaris/build/esm/styles.css';
 import enTranslations from '@shopify/polaris/locales/en.json';
 import { AppProvider as PolarisProvider } from '@shopify/polaris';
+import { Link } from 'react-router-dom';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const LinkWrapper = ({ children, url, ...rest }: any) => {
+  return (
+    <Link to={url} {...rest}>
+      {children}
+    </Link>
+  );
+};
 root.render(
   <React.StrictMode>
-    <PolarisProvider>
+    <PolarisProvider i18n={enTranslations} linkComponent={LinkWrapper}>
       <AppProvider>
         <App />
       </AppProvider>

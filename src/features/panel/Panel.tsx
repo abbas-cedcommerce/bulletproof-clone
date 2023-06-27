@@ -15,35 +15,36 @@ function Panel() {
             </>
         );
     }
+
+    const navigation = <Navigation location="/">
+        <Navigation.Section
+            items={[
+                {
+                    url: '/panel/dashboard',
+                    label: 'Dashboard',
+                    icon: HomeMinor,
+                },
+                {
+                    url: '/panel/products',
+                    label: 'Products',
+                    icon: ProductsMinor,
+                    badge: '15',
+                    onClick() {
+                        navigate("products")
+                    },
+                },
+                {
+                    url: '/panel/settings',
+                    label: 'Settings',
+                    icon: SettingsMinor,
+                },
+            ]}
+        />
+    </Navigation>
     return (
         <>
-            {BodyRenderer}
-            <Frame>
-                <Navigation location="/">
-                    <Navigation.Section
-                        items={[
-                            {
-                                url: '/panel/dashboard',
-                                label: 'Dashboard',
-                                icon: HomeMinor,
-                            },
-                            {
-                                url: '/panel/products',
-                                label: 'Products',
-                                icon: ProductsMinor,
-                                badge: '15',
-                                onClick() {
-                                    navigate("products")
-                                },
-                            },
-                            {
-                                url: '/panel/settings',
-                                label: 'Settings',
-                                icon: SettingsMinor,
-                            },
-                        ]}
-                    />
-                </Navigation>
+            <Frame navigation={navigation}>
+                {BodyRenderer}
             </Frame>
         </>
     )
