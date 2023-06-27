@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Dashboard } from '../types'
 
-function Dashboard() {
+export default function Dashboard() {
     const [test, setTest] = useState<Dashboard>()
     return (
         <div>
@@ -10,4 +10,3 @@ function Dashboard() {
     )
 }
 
-export default Dashboard

@@ -11,18 +11,31 @@ export const AppProvider = ({ children }: AppProviderProps) => {
                 </div>
             }
         >
-            <ErrorBoundary FallbackComponent={() => <p>loading</p>}>
-                {/* <QueryClientProvider client={queryClient}> */}
-                {/* <Notifications /> */}
-                {/* <AuthProvider> */}
-                <Router>{children}</Router>
-                {/* </AuthProvider> */}
-                {/* </QueryClientProvider> */}
-            </ErrorBoundary>
+            <TestProvider props={{
+                logged: true
+            }}>
+                <ErrorBoundary FallbackComponent={() => <p>loading</p>}>
+                    {/* <QueryClientProvider client={queryClient}> */}
+                    {/* <Notifications /> */}
+                    {/* <AuthProvider> */}
+                    <Router>{children}</Router>
+                    {/* </AuthProvider> */}
+                    {/* </QueryClientProvider> */}
+                </ErrorBoundary>
+            </TestProvider>
         </React.Suspense>
     );
 };
 
 type AppProviderProps = {
     children: React.ReactNode;
+    props?: any
 };
+
+
+export function TestProvider(props: AppProviderProps) {
+    console.log(props, 'asdfasdfasf')
+    return <>
+        {props?.children}
+    </>
+}

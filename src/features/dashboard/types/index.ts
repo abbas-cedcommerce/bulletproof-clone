@@ -1,5 +1,5 @@
 export type Dashboard = {
-    title: string;
-    body: string;
-    teamId: string;
-  }
+  title: string;
+  body: string;
+  teamId: string;
+}
