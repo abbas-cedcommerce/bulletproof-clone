@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import '@cedcommerce/ounce-ui/dist/index.css'
 import { AppProvider } from './providers/app';
-
+import '@shopify/polaris/build/esm/styles.css';
+import enTranslations from '@shopify/polaris/locales/en.json';
+import { AppProvider as PolarisProvider } from '@shopify/polaris';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
+    <PolarisProvider>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </PolarisProvider>
   </React.StrictMode>
 );
 

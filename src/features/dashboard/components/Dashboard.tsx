@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Dashboard } from '../types'
+import { Dashboard as DashboardI } from '../types'
 
 export default function Dashboard() {
-    const [test, setTest] = useState<Dashboard>()
+    const [test, setTest] = useState<DashboardI>()
     return (
         <div>
             This is Dashboard
